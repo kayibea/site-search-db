@@ -1,0 +1,41 @@
+{
+  "name": "site-search-db",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://kayibea.github.io/site-search-db",
+  "scripts": {
+    "deploy": "gh-pages -d public",
+    "clean": "rimraf public",
+    "build": "npm run build:client && npm run build:static",
+    "build:client": "tsc -p tsconfig.client.json",
+    "build:static": "ts-node -P tsconfig.node.json src/pug.ts && npm run copy",
+    "copy": "copyfiles -u 2 src/styles/* public",
+    "dev": "concurrently -k -n CLIENT,STATIC -c cyan,green \"npm:watch:client\" \"npm:watch:static\"",
+    "watch:client": "tsc -p tsconfig.client.json -w",
+    "watch:static": "nodemon --config nodemon.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 100,
+    "tabWidth": 2,
+    "useTabs": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "@types/pug": "^2.0.10",
+    "concurrently": "^9.2.0",
+    "copyfiles": "^2.4.1",
+    "pug": "^3.0.3",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2"
+  }
+}
