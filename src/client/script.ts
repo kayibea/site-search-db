@@ -8,6 +8,8 @@ let selectedEngine = select.firstChild as HTMLOptionElement;
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
+      // TODO: Fix me
+      // Check if the url already have been updated
       if (entry.isIntersecting) {
         updateUrl(entry.target, selectedEngine);
       }
