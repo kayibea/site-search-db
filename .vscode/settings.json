@@ -1,0 +1,17 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "data/shortcuts.json"
+            ],
+            "url": "./data/shortcuts.schema.json"
+        },
+        {
+            "fileMatch": [
+                "data/engines.json"
+            ],
+            "url": "./data/engines.schema.json"
+        }
+    ],
+    "liveServer.settings.port": 5501
+}
